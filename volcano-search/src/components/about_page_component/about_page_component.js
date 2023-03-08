@@ -3,7 +3,7 @@ import './aboutPageComponent.css';
 
 function AboutPageComponent() {
 
-    let devs = ['Peter Alkumeidy', 'Ryan Binkley', 'Tyler Hancock', 'Isaac Pringle', 'Brandon Roquez'];
+    let devs = ['Peter Alkumeidy', 'Ryan Binkley', 'Tyler Hancock', 'Isaac Pringle', 'Brandon Roques'];
 
     return (
         <>
