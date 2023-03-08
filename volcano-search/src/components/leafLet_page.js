@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import L from 'leaflet'
 import ResetViewControl from '@20tab/react-leaflet-resetview';
 import {
   MapContainer,
@@ -11,6 +12,13 @@ import {
 } from "react-leaflet";
 import "./app.css";
 import { VolcanoImgages } from "../App";
+
+function GetIcon() {
+  return L.icon({
+    iconUrl: require("./Static/icons8-volcano-48.png"),
+    iconSize: 30
+  })
+}
 
 const LeafLet = () => {
   const [volcanoes, setVolcanoes] = useState([]);
@@ -51,7 +59,7 @@ const LeafLet = () => {
           <LayerGroup>
             {volcanoes.map((volcano, index) => {
               return (
-                <Marker
+                <Marker icon={GetIcon()}
                   position={[
                     volcano.geometry[0].coordinates[1],
                     volcano.geometry[0].coordinates[0],
