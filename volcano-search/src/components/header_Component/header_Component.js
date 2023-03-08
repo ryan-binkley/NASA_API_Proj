@@ -1,10 +1,10 @@
 import './headerComponent.css';
 import React, { useState } from 'react';
-import {VolcanoContext} from '../../App.js';
+import { VolcanoContext } from '../../App.js';
 
 function HeaderComponent() {
 
-    const {volcano, setVolcano} = React.useContext(VolcanoContext);
+    const { volcano, setVolcano } = React.useContext(VolcanoContext);
     const [userInput, setUserInput] = useState('');
 
     const handleChange = (event) => {
@@ -15,7 +15,13 @@ function HeaderComponent() {
     return (
         <>
             <div id='wrapper'>
-                <img id='logo' onClick={() => setVolcano('')} src='./Volcano_Logo.png' alt='Volcano Logo'></img>
+                <div id='navPages'>
+                    <img id='logo' onClick={() => setVolcano('')} src='./Volcano_Logo.png' alt='Volcano Logo'></img>
+                    <div id='navButtons'>
+                        <button onClick={() => setVolcano('')}>Home</button>
+                        <button onClick={() => setVolcano('AboutPage')}>About</button>
+                    </div>
+                </div>
                 <h2 id='title'>Fantastic Volcanoes and Where to Find Them</h2>
                 <div id='search'> {volcano}
                     <input type='text' onChange={handleChange} placeholder='Search...' />

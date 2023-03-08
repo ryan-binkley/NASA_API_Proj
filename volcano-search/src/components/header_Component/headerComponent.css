@@ -13,3 +13,8 @@
     z-index: 100;
     background-color: gray;
 }
+
+#navPages {
+    display: flex;
+    flex-direction: column;
+}

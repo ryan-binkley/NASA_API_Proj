@@ -1,0 +1,11 @@
+#wrapperAbout {
+    display:flex;
+    flex-direction: column;
+}
+
+#devs {
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
