@@ -2,7 +2,7 @@ import './headerComponent.css';
 import React, { useState } from 'react';
 import { VolcanoContext } from '../../App.js';
 
-function HeaderComponent() {
+function HeaderComponent({goToPage}) {
 
     const { volcano, setVolcano } = React.useContext(VolcanoContext);
     const [userInput, setUserInput] = useState('');
@@ -16,10 +16,10 @@ function HeaderComponent() {
         <>
             <div id='wrapper'>
                 <div id='navPages'>
-                    <img id='logo' onClick={() => setVolcano('')} src='./Volcano_Logo.png' alt='Volcano Logo'></img>
+                    <img id='logo' onClick={() => goToPage('/')} src='./Volcano_Logo.png' alt='Volcano Logo'></img>
                     <div id='navButtons'>
-                        <button onClick={() => setVolcano('')}>Home</button>
-                        <button onClick={() => setVolcano('AboutPage')}>About</button>
+                        <button onClick={() => goToPage('/')} >Home</button>
+                        <button onClick={() => goToPage('/components/about_page_component/about_page_component')}>About</button>
                     </div>
                 </div>
                 <h2 id='title'>Fantastic Volcanoes and Where to Find Them</h2>
