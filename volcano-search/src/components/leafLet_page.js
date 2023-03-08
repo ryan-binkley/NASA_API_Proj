@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import ResetViewControl from '@20tab/react-leaflet-resetview';
 import {
   MapContainer,
   Marker,
@@ -21,8 +22,12 @@ const LeafLet = () => {
   }, []);
   const { BaseLayer } = LayersControl;
   return (
-    <MapContainer center={[51.505, -0.09]} zoom={2.5} scrollWheelZoom={true} id='theMap'>
-      {console.log('test', volcanoPics)}
+
+    <MapContainer center={[51.505, -0.09]} zoom={2.4} scrollWheelZoom={true} id='theMap' minZoom={2.4} dragging={false}>
+      <ResetViewControl
+        title="Reset view"
+        icon="🏠"
+      />
       <LayersControl position="topright">
         <BaseLayer checked name="OpenStreetMap">
           <TileLayer
@@ -40,7 +45,6 @@ const LeafLet = () => {
           <TileLayer
             url="https://gibs-{s}.earthdata.nasa.gov/wmts/epsg3857/best/BlueMarble_ShadedRelief_Bathymetry/default//EPSG3857_500m/{z}/{y}/{x}.jpeg"
             attribution="&copy; NASA Blue Marble, image service by OpenGeo"
-            maxNativeZoom={8}
           />
         </BaseLayer>
         <LayersControl.Overlay name="Volcanoes">
