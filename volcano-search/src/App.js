@@ -18,7 +18,6 @@ function App() {
     <div className="App">
       <VolcanoContext.Provider value={{ volcano, setVolcano }}>
         <HeaderComponent />
-        <AboutPageComponent/>
       </VolcanoContext.Provider>
 
 
