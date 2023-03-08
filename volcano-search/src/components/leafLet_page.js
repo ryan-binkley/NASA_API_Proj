@@ -9,9 +9,11 @@ import {
   FeatureGroup,
 } from "react-leaflet";
 import "./app.css";
+import { VolcanoImgages } from "../App";
 
 const LeafLet = () => {
   const [volcanoes, setVolcanoes] = useState([]);
+  const {volcanoPics} = React.useContext(VolcanoImgages);
   useEffect(() => {
     fetch("https://eonet.gsfc.nasa.gov/api/v3/categories/volcanoes")
       .then((response) => response.json())
@@ -20,6 +22,7 @@ const LeafLet = () => {
   const { BaseLayer } = LayersControl;
   return (
     <MapContainer center={[51.505, -0.09]} zoom={2.5} scrollWheelZoom={true} id='theMap'>
+      {console.log('test', volcanoPics)}
       <LayersControl position="topright">
         <BaseLayer checked name="OpenStreetMap">
           <TileLayer
@@ -60,7 +63,8 @@ const LeafLet = () => {
                       rel="noopener noreferrer"
                     >
                       See More Details
-                    </a>
+                    </a> <br />
+                    <img src={volcanoPics[volcano.title]} style={{'width': '200px'}} />
                   </Popup>
                 </Marker>
               );
@@ -73,3 +77,4 @@ const LeafLet = () => {
 };
 
 export default LeafLet;
+
