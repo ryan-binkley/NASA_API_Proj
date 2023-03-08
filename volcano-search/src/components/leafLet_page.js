@@ -1,7 +1,7 @@
 import React from "react";
 import { MapContainer } from "react-leaflet/MapContainer";
 import { TileLayer } from "react-leaflet/TileLayer";
-import { useMap } from "react-leaflet/hooks";
+// import { useMap } from "react-leaflet/hooks";
 import './leaflet_styling.css'
 
 const LeafLet = () => {
