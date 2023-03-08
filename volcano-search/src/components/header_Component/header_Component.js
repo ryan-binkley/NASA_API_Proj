@@ -11,19 +11,15 @@ function HeaderComponent() {
         setUserInput(event.target.value);
     };
 
-    function clickButton() {
-        setVolcano(userInput);
-    }
-
 
     return (
         <>
             <div id='wrapper'>
-                <img id='logo' src='./Volcano_Logo.png' alt='Volcano Logo'></img>
+                <img id='logo' onClick={() => setVolcano('')} src='./Volcano_Logo.png' alt='Volcano Logo'></img>
                 <h2 id='title'>Fantastic Volcanoes and Where to Find Them</h2>
                 <div id='search'> {volcano}
                     <input type='text' onChange={handleChange} placeholder='Search...' />
-                    <button onClick={() => clickButton()}>Search</button>
+                    <button onClick={() => setVolcano(userInput)}>Search</button>
                 </div>
             </div>
         </>
