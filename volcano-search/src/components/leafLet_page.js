@@ -19,7 +19,7 @@ const LeafLet = () => {
   }, []);
   const { BaseLayer } = LayersControl;
   return (
-    <MapContainer center={[51.505, -0.09]} zoom={2.5} scrollWheelZoom={true}>
+    <MapContainer center={[51.505, -0.09]} zoom={2.5} scrollWheelZoom={true} id='theMap'>
       <LayersControl position="topright">
         <BaseLayer checked name="OpenStreetMap">
           <TileLayer
