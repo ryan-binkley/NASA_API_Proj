@@ -31,7 +31,7 @@ const LeafLet = () => {
   const { BaseLayer } = LayersControl;
   return (
 
-    <MapContainer center={[51.505, -0.09]} zoom={2.4} scrollWheelZoom={true} id='theMap' minZoom={2.4} dragging={false}>
+    <MapContainer center={[51.505, -0.09]} zoom={2.4} scrollWheelZoom={true} id='theMap' minZoom={2.4} dragging={true} boxZoom={true} maxBounds={[[-90,-180],   [90,180]]}>
       <ResetViewControl
         title="Reset view"
         icon="🏠"
@@ -55,7 +55,7 @@ const LeafLet = () => {
             attribution="&copy; NASA Blue Marble, image service by OpenGeo"
           />
         </BaseLayer>
-        <LayersControl.Overlay name="Volcanoes">
+        <LayersControl.Overlay checked name="Volcanoes">
           <LayerGroup>
             {volcanoes.map((volcano, index) => {
               return (
