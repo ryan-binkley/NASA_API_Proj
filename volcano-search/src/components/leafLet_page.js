@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import "./app.css";
 
-
 const LeafLet = () => {
   const [volcanoes, setVolcanoes] = useState([])
   useEffect(() => {
@@ -11,6 +10,7 @@ const LeafLet = () => {
       .then(data => setVolcanoes(data.events))
   }, [])
   return (
+
     <MapContainer center={[51.505, -0.09]} zoom={2.5} scrollWheelZoom={true}>
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
