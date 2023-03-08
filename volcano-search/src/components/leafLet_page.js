@@ -1,19 +1,24 @@
 import React, { useState, useEffect } from "react";
-import { MapContainer, Marker, Popup, TileLayer, LayersControl, LayerGroup, FeatureGroup } from "react-leaflet";
+import {
+  MapContainer,
+  Marker,
+  Popup,
+  TileLayer,
+  LayersControl,
+  LayerGroup,
+  FeatureGroup,
+} from "react-leaflet";
 import "./app.css";
 
 const LeafLet = () => {
-  const [volcanoes, setVolcanoes] = useState([])
+  const [volcanoes, setVolcanoes] = useState([]);
   useEffect(() => {
-    fetch('https://eonet.gsfc.nasa.gov/api/v3/categories/volcanoes')
-      .then(response => response.json())
-      .then(data => setVolcanoes(data.events))
-  }, [])
-
+    fetch("https://eonet.gsfc.nasa.gov/api/v3/categories/volcanoes")
+      .then((response) => response.json())
+      .then((data) => setVolcanoes(data.events));
+  }, []);
   const { BaseLayer } = LayersControl;
-
   return (
-
     <MapContainer center={[51.505, -0.09]} zoom={2.5} scrollWheelZoom={true}>
       <LayersControl position="topright">
         <BaseLayer checked name="OpenStreetMap">
@@ -23,8 +28,9 @@ const LeafLet = () => {
           />
         </BaseLayer>
         <BaseLayer checked name="Esri Map">
-          <TileLayer attribution='Tiles &copy; Esri &mdash; Source: Esri, DeLorme, NAVTEQ, USGS, Intermap, iPC, NRCAN, Esri Japan, METI, Esri China (Hong Kong), Esri (Thailand), TomTom, 2012'
-            url='https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}'
+          <TileLayer
+            attribution="Tiles &copy; Esri &mdash; Source: Esri, DeLorme, NAVTEQ, USGS, Intermap, iPC, NRCAN, Esri Japan, METI, Esri China (Hong Kong), Esri (Thailand), TomTom, 2012"
+            url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}"
           />
         </BaseLayer>
         <BaseLayer name="NASA Gibs Blue Marble">
@@ -38,13 +44,31 @@ const LeafLet = () => {
           <LayerGroup>
             {volcanoes.map((volcano, index) => {
               return (
-
-                <Marker position={[volcano.geometry[0].coordinates[1], volcano.geometry[0].coordinates[0]]}><Popup>{volcano.title}</Popup></Marker>)
+                <Marker
+                  position={[
+                    volcano.geometry[0].coordinates[1],
+                    volcano.geometry[0].coordinates[0],
+                  ]}
+                >
+                  <Popup>
+                    {volcano.title} <br />
+                    {volcano.geometry[0].coordinates[1]},{" "}
+                    {volcano.geometry[0].coordinates[0]} <br />
+                    <a
+                      href={volcano.sources[0].url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      See More Details
+                    </a>
+                  </Popup>
+                </Marker>
+              );
             })}
-          </LayerGroup></LayersControl.Overlay>
+          </LayerGroup>
+        </LayersControl.Overlay>
       </LayersControl>
     </MapContainer>
-
   );
 };
 

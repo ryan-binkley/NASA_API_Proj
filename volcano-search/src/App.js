@@ -2,7 +2,7 @@ import './App.css';
 import { Routes, Route } from 'react-router-dom'
 import Volcano from './components/volcano.js'
 import LeafLet from './components/leafLet_page';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import HeaderComponent from './components/header_Component/header_Component';
 
 
