@@ -69,7 +69,8 @@ const LeafLet = () => {
                 >
                   <Popup>
                     {volcano.title}
-                    <div onClick={() => setFavVolcanos([...favVolcanos, volcano])}>⭐</div>
+                    {favVolcanos.filter((favVolcano) => favVolcano.id == volcano.id).length == 0 ? <div onClick={() => setFavVolcanos([...favVolcanos, volcano])}>⭐</div>
+                    : ''}
                     {volcano.geometry[0].coordinates[1]},{" "}
                     {volcano.geometry[0].coordinates[0]} <br />
                     <a
