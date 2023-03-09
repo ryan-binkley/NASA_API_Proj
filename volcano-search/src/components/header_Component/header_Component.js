@@ -2,13 +2,15 @@ import './headerComponent.css';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { VolcanoContext } from '../../App.js';
+import { VolcanoImgages } from '../../App.js';
+import SearchBar from '../searchBar';
 
 function HeaderComponent() {
 
     const { volcano, setVolcano } = React.useContext(VolcanoContext);
+    const {volcanoPics} = React.useContext(VolcanoImgages);
     const [userInput, setUserInput] = useState('');
     const navigate = useNavigate();
-
     const handleChange = (event) => {
         setUserInput(event.target.value);
     };
@@ -26,8 +28,7 @@ function HeaderComponent() {
                 </div>
                 <h2 id='title'>Fantastic Volcanoes and Where to Find Them</h2>
                 <div id='search'> {volcano}
-                    <input type='text' onChange={handleChange} placeholder='Search...' />
-                    <button onClick={() => setVolcano(userInput)} className='buttons'>Search</button>
+                    <SearchBar />
                 </div>
             </div>
         </>
