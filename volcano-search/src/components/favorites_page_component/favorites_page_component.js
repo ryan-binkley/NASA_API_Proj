@@ -21,7 +21,7 @@ function FavoritesPageComponent() {
                 <h3 id='title'>Favorite Volcanoes</h3>
                 <div id='favs'>
                     {favVolcanos.length ?
-                        favVolcanos.map((volcano) => <li key={volcano.id}>{volcano.title} Added: {simpDate} <button onClick={() => setFavVolcanos([...favVolcanos, favVolcanos.filter((volcano) => volcano.id == volcano.id)])}>Remove</button></li>)
+                        favVolcanos.map((volcano) => <li key={volcano.id}>{volcano.title} -----Added: {simpDate} <button onClick={() => setFavVolcanos( favVolcanos.filter((volcanos) => volcanos.id !== volcano.id))}>Remove</button></li>)
                         : defaultText}
                 </div>
             </div>
