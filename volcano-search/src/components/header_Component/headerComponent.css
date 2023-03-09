@@ -19,3 +19,24 @@
     display: flex;
     flex-direction: column;
 }
+
+.buttons{
+    display:inline-block;
+    border:0.16em solid #d7d7d7;
+    margin:0 0.3em 0.3em 0;
+    box-sizing: border-box;
+    text-transform:uppercase;
+    font-family:'Roboto',sans-serif;
+    font-weight:400;
+    color:#000000;
+    text-align:center;
+    transition: all 0.15s;
+}
+.buttons:hover{
+    color:#000000;
+    border-color:#ffafaf;
+}
+.buttons:active{
+    color:#BBBBBB;
+    border-color:#BBBBBB;
+}
