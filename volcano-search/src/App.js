@@ -5,6 +5,7 @@ import LeafLet from './components/leafLet_page';
 import React, { useState } from 'react';
 import HeaderComponent from './components/header_Component/header_Component';
 import AboutPageComponent from './components/about_page_component/about_page_component';
+import FavoritesPageComponent from './components/favorites_page_component/favorites_page_component';
 
 
 export const VolcanoContext = React.createContext([]);
@@ -45,18 +46,19 @@ function App() {
   }
 
   const [volcano, setVolcano] = useState('/');
+  const [favVolcanos, setFavVolcanos] = useState([]);
 
 
   return (
     <div className="App">
-      <VolcanoContext.Provider value={{ volcano, setVolcano }}>
+      <VolcanoContext.Provider value={{ volcano, setVolcano, favVolcanos, setFavVolcanos }}>
         <VolcanoImgages.Provider value={{ volcanoPics }}>
           <HeaderComponent  />
           <Routes>
             <Route path='/' element={<LeafLet />} />
             <Route path="about" element={<AboutPageComponent />} />
-            <Route path='/volcano/' element={<Volcano />} />
-            <Route path='/components/about_page_component/about_page_component' element={<AboutPageComponent />} />
+            <Route path="favorites" element={<FavoritesPageComponent />} />
+            {/* <Route path='/volcano/' element={<Volcano />} /> */}
           </Routes>
         </VolcanoImgages.Provider>
       </VolcanoContext.Provider>
