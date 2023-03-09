@@ -44,6 +44,8 @@ const LeafLet = () => {
       <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet-src.js" integrity="sha512-IkGU/uDhB9u9F8k+2OsA6XXoowIhOuQL1NTgNZHY1nkURnqEGlDZq3GsfmdJdKFe1k1zOc6YU2K7qY+hF9AodA==" crossorigin=""></script>
       <link rel="stylesheet" href="https://unpkg.com/leaflet-draw@1.0.2/dist/leaflet.draw-src.css" />
       <script src="https://unpkg.com/leaflet-draw@1.0.2/dist/leaflet.draw-src.js"></script>
+      <script src="http://unpkg.com/leaflet@latest/dist/leaflet.js"></script>
+      <script src="js/leaflet-providers.js"></script>
       
       <MapContainer center={[51.505, -0.09]} zoom={2.4} scrollWheelZoom={true} id='theMap' minZoom={2.4} maxZoom={50} dragging={true} boxZoom={true} maxBounds={[[-90, -180], [90, 180]]}>
         <ResetViewControl
@@ -75,12 +77,7 @@ const LeafLet = () => {
               url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}"
             />
           </BaseLayer>
-          <BaseLayer name="NASA Gibs Blue Marble" >
-            <TileLayer
-              url="https://gibs-{s}.earthdata.nasa.gov/wmts/epsg3857/best/BlueMarble_ShadedRelief_Bathymetry/default//EPSG3857_500m/{z}/{y}/{x}.jpeg"
-              attribution="&copy; NASA Blue Marble, image service by OpenGeo"
-            />
-          </BaseLayer>
+
           <LayersControl.Overlay checked name="Volcanoes">
           <LayerGroup>
             {volcanoes.map((volcano, index) => {
@@ -125,6 +122,7 @@ const LeafLet = () => {
         </FeatureGroup>
         <MapPrint position="topleft" sizeModes={['Current', 'A4Portrait', 'A4Landscape']} hideControlContainer={false} title="Print" />
         <MapPrint position="topleft" sizeModes={['Current', 'A4Portrait', 'A4Landscape']} hideControlContainer={false} title="Export as PNG" exportOnly />
+        
       </MapContainer>
     </>
   );
