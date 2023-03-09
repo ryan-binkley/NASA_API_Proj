@@ -23,8 +23,8 @@ function GetIcon() {
 
 const LeafLet = () => {
   const [volcanoes, setVolcanoes] = useState([]);
-  const {volcanoPics} = React.useContext(VolcanoImgages);
-  const {favVolcanos, setFavVolcanos} = React.useContext(VolcanoContext);
+  const { volcanoPics } = React.useContext(VolcanoImgages);
+  const { favVolcanos, setFavVolcanos } = React.useContext(VolcanoContext);
   useEffect(() => {
     fetch("https://eonet.gsfc.nasa.gov/api/v3/categories/volcanoes")
       .then((response) => response.json())
@@ -33,7 +33,7 @@ const LeafLet = () => {
   const { BaseLayer } = LayersControl;
   return (
 
-    <MapContainer center={[51.505, -0.09]} zoom={2.4} scrollWheelZoom={true} id='theMap' minZoom={2.4} dragging={true} boxZoom={true} maxBounds={[[-90,-180],   [90,180]]}>
+    <MapContainer center={[51.505, -0.09]} zoom={2.4} scrollWheelZoom={true} id='theMap' minZoom={2.4} dragging={true} boxZoom={true} maxBounds={[[-90, -180], [90, 180]]}>
       <ResetViewControl
         title="Reset view"
         icon="🏠"
@@ -68,11 +68,15 @@ const LeafLet = () => {
                   ]}
                 >
                   <Popup>
-                    {volcano.title}
-                    {favVolcanos.filter((favVolcano) => favVolcano.id == volcano.id).length == 0 ? <div onClick={() => setFavVolcanos([...favVolcanos, volcano])}>⭐</div>
-                    : ''}
+                    <span id='favStar'>
+                      <span id='pTitle'>{volcano.title} </span>
+                      {favVolcanos.filter((favVolcano) => favVolcano.id == volcano.id).length == 0 ? <span onClick={() => setFavVolcanos([...favVolcanos, volcano])}>⭐</span>
+                        : ''}
+                    </span>
+                    <div>
                     {volcano.geometry[0].coordinates[1]},{" "}
                     {volcano.geometry[0].coordinates[0]} <br />
+                    </div>
                     <a
                       href={volcano.sources[0].url}
                       target="_blank"
@@ -80,7 +84,7 @@ const LeafLet = () => {
                     >
                       See More Details
                     </a> <br />
-                    <img src={volcanoPics[volcano.title]} style={{'width': '200px'}} />
+                    <img src={volcanoPics[volcano.title]} style={{ 'width': '200px' }} />
                   </Popup>
                 </Marker>
               );
