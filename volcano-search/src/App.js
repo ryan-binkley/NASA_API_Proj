@@ -1,5 +1,5 @@
 import './App.css';
-import { Routes, Route, useNavigate } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import Volcano from './components/volcano.js'
 import LeafLet from './components/leafLet_page';
 import React, { useState } from 'react';
@@ -45,27 +45,19 @@ function App() {
   }
 
   const [volcano, setVolcano] = useState('/');
-  const navigate = useNavigate();
-
-  function goToPage(page) {
-    setVolcano(page);
-    navigate(`${page}`);
-  }
 
 
   return (
     <div className="App">
       <VolcanoContext.Provider value={{ volcano, setVolcano }}>
         <VolcanoImgages.Provider value={{ volcanoPics }}>
-
-          <HeaderComponent goToPage={goToPage} />
-
+          <HeaderComponent  />
           <Routes>
             <Route path='/' element={<LeafLet />} />
+            <Route path="about" element={<AboutPageComponent />} />
             <Route path='/volcano/' element={<Volcano />} />
             <Route path='/components/about_page_component/about_page_component' element={<AboutPageComponent />} />
           </Routes>
-
         </VolcanoImgages.Provider>
       </VolcanoContext.Provider>
     </div>
