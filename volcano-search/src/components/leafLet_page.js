@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext} from "react";
 import L from 'leaflet'
 import ResetViewControl from '@20tab/react-leaflet-resetview';
 import {
@@ -13,6 +13,7 @@ import {
 import "./app.css";
 import { VolcanoImgages } from "../App";
 import { VolcanoContext } from "../App";
+import { VolcanoContext } from "../App";
 
 function GetIcon() {
   return L.icon({
@@ -21,15 +22,12 @@ function GetIcon() {
   })
 }
 
+ 
+  
 const LeafLet = () => {
-  const [volcanoes, setVolcanoes] = useState([]);
-  const { volcanoPics } = React.useContext(VolcanoImgages);
+const { volcanoes} = React.useContext(VolcanoContext)
+ const { volcanoPics } = React.useContext(VolcanoImgages);
   const { favVolcanos, setFavVolcanos } = React.useContext(VolcanoContext);
-  useEffect(() => {
-    fetch("https://eonet.gsfc.nasa.gov/api/v3/categories/volcanoes")
-      .then((response) => response.json())
-      .then((data) => setVolcanoes(data.events));
-  }, []);
   const { BaseLayer } = LayersControl;
   return (
 
