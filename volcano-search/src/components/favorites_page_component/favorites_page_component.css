@@ -1,0 +1,12 @@
+#wrapperFavs {
+    margin-top: 100px;
+    display:flex;
+    flex-direction: column;
+}
+
+#favs {
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

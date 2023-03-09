@@ -12,6 +12,7 @@ import {
 } from "react-leaflet";
 import "./app.css";
 import { VolcanoImgages } from "../App";
+import { VolcanoContext } from "../App";
 
 function GetIcon() {
   return L.icon({
@@ -23,6 +24,7 @@ function GetIcon() {
 const LeafLet = () => {
   const [volcanoes, setVolcanoes] = useState([]);
   const {volcanoPics} = React.useContext(VolcanoImgages);
+  const {favVolcanos, setFavVolcanos} = React.useContext(VolcanoContext);
   useEffect(() => {
     fetch("https://eonet.gsfc.nasa.gov/api/v3/categories/volcanoes")
       .then((response) => response.json())
@@ -66,7 +68,8 @@ const LeafLet = () => {
                   ]}
                 >
                   <Popup>
-                    {volcano.title} <br />
+                    {volcano.title}
+                    <div onClick={() => setFavVolcanos([...favVolcanos, volcano])}>⭐</div>
                     {volcano.geometry[0].coordinates[1]},{" "}
                     {volcano.geometry[0].coordinates[0]} <br />
                     <a

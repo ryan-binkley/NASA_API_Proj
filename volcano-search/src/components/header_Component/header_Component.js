@@ -21,6 +21,7 @@ function HeaderComponent() {
                     <div id='navButtons'>
                         <button onClick={() => navigate('/')} className='buttons'>Home</button>
                         <button onClick={() => navigate("/about")} className='buttons'>About</button>
+                        <button onClick={() => navigate("/favorites")} className='buttons'>Favorites</button>
                     </div>
                 </div>
                 <h2 id='title'>Fantastic Volcanoes and Where to Find Them</h2>
