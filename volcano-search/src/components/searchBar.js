@@ -5,7 +5,7 @@ import LeafLet from './leafLet_page';
 
 const SearchBar = () => {
 
-    const {coords, setCoords, zoom, setZoom} = React.useContext(VolcanoContext);
+    const {setCoords, setZoom} = React.useContext(VolcanoContext);
     const [searchInput, setSearchInput] = useState("");
     const [checked, setChecked] = useState('name')
     const handleChange = (event) => {
@@ -62,7 +62,7 @@ const SearchBar = () => {
             <legend>Select a search option:</legend>
                 <div>
                     <label>
-                        <input type="radio" id="name" name='test' value='name' checked onChange={handleChange}/>
+                        <input type="radio" id="name" name='test' value='name' onChange={handleChange}/>
                         Name
                     </label>
                     <label>
