@@ -1,6 +1,7 @@
 As a user,
-            I need to be able to search for a certain volcano.
+            I need to be able to search for a certain volcano or country
             I need to see multiple layer images for a volcano.
-            I need to view a brief summary of a volcano when I find its location.
-            I want to be able to mouse navigate on the map.
-            I want to see a history of the volcano when I have the info card open.
+            I need information on the volcano when I find its location.
+            I want to be able to mouse navigate(drag method) on the map.
+            I want to be able to add markers and have tools help create a risk assessment.
+            
