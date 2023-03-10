@@ -73,7 +73,7 @@ function App() {
             <Route path='/' element={<LeafLet />} />
             <Route path="about" element={<AboutPageComponent />} />
             <Route path="favorites" element={<FavoritesPageComponent />} />
-            <Route path='/volcano/' element={<Volcano />} />
+            {/* <Route path='/volcano/' element={<Volcano />} /> */}
             <Route path='/components/about_page_component/about_page_component' element={<AboutPageComponent />} />
             <Route path="daily" element={<DailyImage/>}/>
           </Routes>
