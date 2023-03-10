@@ -46,7 +46,7 @@ const LeafLet = () => {
     console.log(current)
     setTimeout(() => {
       current.flyTo(coords, zoom, {
-        duration: 2
+        duration: 5
       })
     }, 1000)
 

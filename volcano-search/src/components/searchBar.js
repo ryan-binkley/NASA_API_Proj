@@ -8,11 +8,10 @@ const SearchBar = () => {
 
     const { setCoords, setZoom } = React.useContext(VolcanoContext);
     const [searchInput, setSearchInput] = useState("");
-    const [checked, setChecked] = useState('name')
-    const handleChange = (event) => {
-        setChecked(event.target.value)
+    const [checked, setChecked] = useState(true)
+    const handleChange = () => {
+        setChecked(!checked)
     }
-    const temp = new Set()
     const volcanoes = [
         { name: "Ambae Volcano", coords: [-15.389, 167.835], zoom: 9 },
         { name: "Epi Volcano", coords: [-16.68, 168.37], zoom: 9 },
@@ -63,7 +62,7 @@ const SearchBar = () => {
                 <legend>Select a search option:</legend>
                 <div>
                     <label>
-                        <input type="radio" id="name" name='test' value='name' onChange={handleChange} />
+                        <input type="radio" id="name" name='test' defaultChecked value='name' onChange={handleChange}/>
                         Name
                     </label>
                     <label>
@@ -79,7 +78,7 @@ const SearchBar = () => {
                 value={searchInput}>
             </input>
             <div className="searchButtons">
-                {(checked === 'name') ? volcanoes.filter((volcano) => {
+                {(checked === true ) ? volcanoes.filter((volcano) => {
                     if (searchInput === "") {
                         return null
                     } else if (volcano.name.toLowerCase().includes(searchInput.toLowerCase())) {
