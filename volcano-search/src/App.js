@@ -6,7 +6,6 @@ import React, { useState } from 'react';
 import HeaderComponent from './components/header_Component/header_Component';
 import AboutPageComponent from './components/about_page_component/about_page_component';
 import FavoritesPageComponent from './components/favorites_page_component/favorites_page_component';
-import SearchBar from './components/searchBar';
 
 export const VolcanoContext = React.createContext([]);
 export const VolcanoImgages = React.createContext([]);
@@ -46,11 +45,13 @@ function App() {
   }
   const [volcano, setVolcano] = useState('/');
   const [favVolcanos, setFavVolcanos] = useState([]);
+  const [coords, setCoords] = useState([])
+  const [zoom, setZoom] = useState()
 
 
   return (
     <div className="App">
-      <VolcanoContext.Provider value={{ volcano, setVolcano, favVolcanos, setFavVolcanos }}>
+      <VolcanoContext.Provider value={{ volcano, setVolcano, favVolcanos, setFavVolcanos, coords, setCoords, zoom, setZoom }}>
         <VolcanoImgages.Provider value={{ volcanoPics }}>
           <HeaderComponent />
           <Routes>
