@@ -28,15 +28,10 @@ function GetIcon() {
 
 const LeafLet = () => {
   const [volcanoes, setVolcanoes] = useState([]);
-<<<<<<< HEAD
-  const { volcanoPics } = React.useContext(VolcanoImgages);
-  const { favVolcanos, setFavVolcanos } = React.useContext(VolcanoContext);
-=======
   const {volcanoPics} = React.useContext(VolcanoImgages);
   const {favVolcanos, setFavVolcanos} = React.useContext(VolcanoContext);
-  const {coords} = React.useContext(VolcanoContext)
+  const {coords, zoom} = React.useContext(VolcanoContext)
   const mapRef = useRef();
->>>>>>> caa93948 (working on search function)
   useEffect(() => {
     fetch("https://eonet.gsfc.nasa.gov/api/v3/categories/volcanoes")
       .then((response) => response.json())
@@ -48,10 +43,11 @@ const LeafLet = () => {
     const { current } = map
     console.log(current)
     setTimeout(() => {
-      current.flyTo(coords, 4.5, {
-        duration: 3
+      current.flyTo(coords, zoom, {
+        duration: 2
       })
-    }, 2000)
+    }, 1000)
+    
  
   }, [coords])
 
@@ -60,11 +56,7 @@ const LeafLet = () => {
   
   return (
 
-<<<<<<< HEAD
-    <MapContainer center={[51.505, -0.09]} zoom={2.4} scrollWheelZoom={true} id='theMap' minZoom={2.4} dragging={true} boxZoom={true} maxBounds={[[-90, -180], [90, 180]]}>
-=======
     <MapContainer ref={mapRef} center={[51.505, -0.09]} zoom={2.4} scrollWheelZoom={true} id='theMap' minZoom={2.4} dragging={true} boxZoom={true} maxBounds={[[-90,-180],   [90,180]]}>
->>>>>>> caa93948 (working on search function)
       <ResetViewControl
         title="Reset view"
         icon="🏠"
