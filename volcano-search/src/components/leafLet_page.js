@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext} from "react";
 import L from 'leaflet'
 import ResetViewControl from '@20tab/react-leaflet-resetview';
 import { EditControl } from "react-leaflet-draw"
@@ -19,6 +19,7 @@ import "./app.css";
 import 'leaflet-easyprint'
 import { VolcanoImgages } from "../App";
 import { VolcanoContext } from "../App";
+import { VolcanoContext } from "../App";
 
 function GetIcon() {
   return L.icon({
@@ -27,6 +28,8 @@ function GetIcon() {
   })
 }
 
+ 
+  
 const LeafLet = () => {
   const [volcanoes, setVolcanoes] = useState([]);
   const { volcanoPics } = React.useContext(VolcanoImgages);
@@ -77,7 +80,6 @@ const LeafLet = () => {
               url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}"
             />
           </BaseLayer>
-
           <LayersControl.Overlay checked name="Volcanoes">
           <LayerGroup>
             {volcanoes.map((volcano, index) => {
@@ -89,11 +91,15 @@ const LeafLet = () => {
                   ]}
                 >
                   <Popup>
-                    {volcano.title}
-                    {favVolcanos.filter((favVolcano) => favVolcano.id == volcano.id).length == 0 ? <div onClick={() => setFavVolcanos([...favVolcanos, volcano])}>⭐</div>
-                    : ''}
+                    <span id='favStar'>
+                      <span id='pTitle'>{volcano.title} </span>
+                      {favVolcanos.filter((favVolcano) => favVolcano.id == volcano.id).length == 0 ? <span onClick={() => setFavVolcanos([...favVolcanos, volcano])}>⭐</span>
+                        : ''}
+                    </span>
+                    <div>
                     {volcano.geometry[0].coordinates[1]},{" "}
                     {volcano.geometry[0].coordinates[0]} <br />
+                    </div>
                     <a
                       href={volcano.sources[0].url}
                       target="_blank"
@@ -101,7 +107,7 @@ const LeafLet = () => {
                     >
                       See More Details
                     </a> <br />
-                    <img src={volcanoPics[volcano.title]} style={{'width': '200px'}} />
+                    <img src={volcanoPics[volcano.title]} style={{ 'width': '200px' }} />
                   </Popup>
                 </Marker>
               );

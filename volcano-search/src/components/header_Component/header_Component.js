@@ -19,11 +19,18 @@ function HeaderComponent() {
         <>
             <div id='wrapper'>
                 <div id='navPages'>
+                    <div>
                     <img id='logo' onClick={() => navigate('/')} src='./Volcano_Logo.png' alt='Volcano Logo'></img>
+                    </div>
                     <div id='navButtons'>
                         <button onClick={() => navigate('/')} className='buttons'>Home</button>
                         <button onClick={() => navigate("/about")} className='buttons'>About</button>
                         <button onClick={() => navigate("/favorites")} className='buttons'>Favorites</button>
+                        <button onClick={() => navigate('/')} >Home</button>
+                        <button onClick={() => navigate("/about")}>About</button>
+                        <div>
+                          <button onClick={() => navigate("/daily")}>Volcano of the Day</button>
+                        </div>
                     </div>
                 </div>
                 <h2 id='title'>Fantastic Volcanoes and Where to Find Them</h2>
