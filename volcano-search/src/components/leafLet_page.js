@@ -15,6 +15,7 @@ import "./app.css";
 import { VolcanoImgages } from "../App";
 import { VolcanoContext } from "../App";
 
+
 function GetIcon() {
   return L.icon({
     iconUrl: require("./Static/icons8-volcano-48.png"),
