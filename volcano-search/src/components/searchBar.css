@@ -1,6 +1,9 @@
+.searchRadios {
+  position: relative;
+}
+
 .searchButtons {
-  position: fixed;
-  right: 86px;
+  position:absolute;
   width: 200px;
   justify-content: center;
 }

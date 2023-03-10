@@ -58,7 +58,7 @@ const SearchBar = () => {
         { country: "Peru", coords: [-15.78, -71.85], zoom: 6 }
     ]
     return (
-        <div>
+        <div className="searchRadios">
             <fieldset>
                 <legend>Select a search option:</legend>
                 <div>
