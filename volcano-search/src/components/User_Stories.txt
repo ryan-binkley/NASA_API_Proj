@@ -3,5 +3,4 @@ As a user,
             I need to see multiple layer images for a volcano.
             I need information on the volcano when I find its location.
             I want to be able to mouse navigate(drag method) on the map.
-            I want to be able to add markers and have tools help create a risk assessment.
-            
+            I want to be able to add markers and have tools help create a risk assessment reference.
