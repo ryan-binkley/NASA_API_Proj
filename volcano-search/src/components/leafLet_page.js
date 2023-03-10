@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import L from 'leaflet'
 import ResetViewControl from '@20tab/react-leaflet-resetview';
 import { EditControl } from "react-leaflet-draw"
@@ -20,6 +20,7 @@ import 'leaflet-easyprint'
 import { VolcanoImgages } from "../App";
 import { VolcanoContext } from "../App";
 
+
 function GetIcon() {
   return L.icon({
     iconUrl: require("./Static/icons8-volcano-48.png"),
@@ -29,13 +30,29 @@ function GetIcon() {
 
 const LeafLet = () => {
   const [volcanoes, setVolcanoes] = useState([]);
-  const { volcanoPics } = React.useContext(VolcanoImgages);
-  const { favVolcanos, setFavVolcanos } = React.useContext(VolcanoContext);
+  const {volcanoPics} = React.useContext(VolcanoImgages);
+  const {favVolcanos, setFavVolcanos} = React.useContext(VolcanoContext);
+  const {coords, zoom} = React.useContext(VolcanoContext)
+  const mapRef = useRef();
   useEffect(() => {
     fetch("https://eonet.gsfc.nasa.gov/api/v3/categories/volcanoes")
       .then((response) => response.json())
       .then((data) => setVolcanoes(data.events));
   }, []);
+
+  useEffect(() => {
+    const map = mapRef
+    const { current } = map
+    console.log(current)
+    setTimeout(() => {
+      current.flyTo(coords, zoom, {
+        duration: 2
+      })
+    }, 1000)
+    
+ 
+  }, [coords])
+
   const { BaseLayer } = LayersControl;
 
   return (
@@ -47,7 +64,7 @@ const LeafLet = () => {
       <script src="http://unpkg.com/leaflet@latest/dist/leaflet.js"></script>
       <script src="js/leaflet-providers.js"></script>
       
-      <MapContainer center={[51.505, -0.09]} zoom={2.4} scrollWheelZoom={true} id='theMap' minZoom={2.4} maxZoom={50} dragging={true} boxZoom={true} maxBounds={[[-90, -180], [90, 180]]}>
+      <MapContainer ref={mapRef} center={[51.505, -0.09]} zoom={2.4} scrollWheelZoom={true} id='theMap' minZoom={2.4} maxZoom={50} dragging={true} boxZoom={true} maxBounds={[[-90, -180], [90, 180]]}>
         <ResetViewControl
           title="Reset view"
           icon="🏠"
@@ -89,11 +106,15 @@ const LeafLet = () => {
                   ]}
                 >
                   <Popup>
-                    {volcano.title}
-                    {favVolcanos.filter((favVolcano) => favVolcano.id == volcano.id).length == 0 ? <div onClick={() => setFavVolcanos([...favVolcanos, volcano])}>⭐</div>
-                    : ''}
+                    <span id='favStar'>
+                      <span id='pTitle'>{volcano.title} </span>
+                      {favVolcanos.filter((favVolcano) => favVolcano.id == volcano.id).length == 0 ? <span style={{'cursor': "pointer"}}onClick={() => setFavVolcanos([...favVolcanos, volcano])}>⭐</span>
+                        : ''}
+                    </span>
+                    <div>
                     {volcano.geometry[0].coordinates[1]},{" "}
                     {volcano.geometry[0].coordinates[0]} <br />
+                    </div>
                     <a
                       href={volcano.sources[0].url}
                       target="_blank"
@@ -101,7 +122,7 @@ const LeafLet = () => {
                     >
                       See More Details
                     </a> <br />
-                    <img src={volcanoPics[volcano.title]} style={{'width': '200px'}} />
+                    <img src={volcanoPics[volcano.title]} style={{ 'width': '200px' }} />
                   </Popup>
                 </Marker>
               );
@@ -128,5 +149,5 @@ const LeafLet = () => {
   );
 };
 
-export default LeafLet;
+export default LeafLet
 
