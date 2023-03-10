@@ -7,7 +7,7 @@ import SearchBar from '../searchBar';
 
 function HeaderComponent() {
 
-    const { volcano, setVolcano } = React.useContext(VolcanoContext);
+    const { volcano, setVolcano, favVolcanos } = React.useContext(VolcanoContext);
     const {volcanoPics} = React.useContext(VolcanoImgages);
     const [userInput, setUserInput] = useState('');
     const navigate = useNavigate();
@@ -25,10 +25,11 @@ function HeaderComponent() {
                     <div id='navButtons'>
                         <button onClick={() => navigate('/')} className='buttons'>Home</button>
                         <button onClick={() => navigate("/about")} className='buttons'>About</button>
-                        <button onClick={() => navigate("/favorites")} className='buttons'>Favorites</button>
+                        <button onClick={() => navigate("/favorites")} className='buttons'>Favorites ({favVolcanos.length})</button>
                         <div>
                           <button onClick={() => navigate("/daily")}>Volcano of the Day</button>
                         </div>
+
                     </div>
                 </div>
                 <h2 id='title'>Fantastic Volcanoes and Where to Find Them</h2>
