@@ -1,0 +1,6 @@
+.searchButtons {
+  position: fixed;
+  right: 86px;
+  width: 200px;
+  justify-content: center;
+}
