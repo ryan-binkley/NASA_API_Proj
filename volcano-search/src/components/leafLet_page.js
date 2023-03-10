@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import L from 'leaflet'
 import ResetViewControl from '@20tab/react-leaflet-resetview';
 import {
@@ -9,6 +9,7 @@ import {
   LayersControl,
   LayerGroup,
   FeatureGroup,
+  useMap,
 } from "react-leaflet";
 import "./app.css";
 import { VolcanoImgages } from "../App";
@@ -21,19 +22,49 @@ function GetIcon() {
   })
 }
 
+
+
+
+
 const LeafLet = () => {
   const [volcanoes, setVolcanoes] = useState([]);
+<<<<<<< HEAD
   const { volcanoPics } = React.useContext(VolcanoImgages);
   const { favVolcanos, setFavVolcanos } = React.useContext(VolcanoContext);
+=======
+  const {volcanoPics} = React.useContext(VolcanoImgages);
+  const {favVolcanos, setFavVolcanos} = React.useContext(VolcanoContext);
+  const {coords} = React.useContext(VolcanoContext)
+  const mapRef = useRef();
+>>>>>>> caa93948 (working on search function)
   useEffect(() => {
     fetch("https://eonet.gsfc.nasa.gov/api/v3/categories/volcanoes")
       .then((response) => response.json())
       .then((data) => setVolcanoes(data.events));
   }, []);
+
+  useEffect(() => {
+    const map = mapRef
+    const { current } = map
+    console.log(current)
+    setTimeout(() => {
+      current.flyTo(coords, 4.5, {
+        duration: 3
+      })
+    }, 2000)
+ 
+  }, [coords])
+
   const { BaseLayer } = LayersControl;
+
+  
   return (
 
+<<<<<<< HEAD
     <MapContainer center={[51.505, -0.09]} zoom={2.4} scrollWheelZoom={true} id='theMap' minZoom={2.4} dragging={true} boxZoom={true} maxBounds={[[-90, -180], [90, 180]]}>
+=======
+    <MapContainer ref={mapRef} center={[51.505, -0.09]} zoom={2.4} scrollWheelZoom={true} id='theMap' minZoom={2.4} dragging={true} boxZoom={true} maxBounds={[[-90,-180],   [90,180]]}>
+>>>>>>> caa93948 (working on search function)
       <ResetViewControl
         title="Reset view"
         icon="🏠"
@@ -96,5 +127,5 @@ const LeafLet = () => {
   );
 };
 
-export default LeafLet;
+export default LeafLet
 
