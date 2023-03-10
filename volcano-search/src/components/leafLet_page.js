@@ -203,13 +203,8 @@ const LeafLet = () => {
 
         </LayersControl>
       </MapContainer>
-<<<<<<< HEAD
       </div>
       );
-=======
-    </>
-  );
->>>>>>> a7bac7df (fix zoom levels, opacity of layers)
 };
 
 export default LeafLet
