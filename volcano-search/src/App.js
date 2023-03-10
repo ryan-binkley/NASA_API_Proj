@@ -66,7 +66,7 @@ function App() {
 
   return (
     <div className="App">
-      <VolcanoContext.Provider value={{ volcano, setVolcano, favVolcanos, setFavVolcanos, coords, setCoords, zoom, setZoom }}>
+      <VolcanoContext.Provider value={{ volcanoes, volcano, setVolcano, favVolcanos, setFavVolcanos, coords, setCoords, zoom, setZoom }}>
         <VolcanoImgages.Provider value={{ volcanoPics }}>
           <HeaderComponent />
           <Routes>
