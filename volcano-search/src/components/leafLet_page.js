@@ -94,7 +94,7 @@ const LeafLet = () => {
                   <Popup>
                     <span id='favStar'>
                       <span id='pTitle'>{volcano.title} </span>
-                      {favVolcanos.filter((favVolcano) => favVolcano.id == volcano.id).length == 0 ? <span onClick={() => setFavVolcanos([...favVolcanos, volcano])}>⭐</span>
+                      {favVolcanos.filter((favVolcano) => favVolcano.id == volcano.id).length == 0 ? <span style={{'cursor': "pointer"}}onClick={() => setFavVolcanos([...favVolcanos, volcano])}>⭐</span>
                         : ''}
                     </span>
                     <div>
