@@ -2,7 +2,8 @@ import React, { useEffect, useRef } from "react";
 import ResetViewControl from '@20tab/react-leaflet-resetview';
 import { EditControl } from "react-leaflet-draw"
 import MapPrint from "./MapPrint/MapPrint";
-import {MapContainer, TileLayer, LayersControl, FeatureGroup,} from "react-leaflet";
+import {MapContainer, TileLayer, LayersControl, FeatureGroup, LayerGroup, Marker, Popup} from "react-leaflet";
+import L from 'leaflet'
 import "./app.css";
 import 'leaflet-easyprint'
 import { VolcanoContext } from "../App";
@@ -10,12 +11,18 @@ import OptionalLayers from "./layers/optional_layers";
 
 
 const LeafLet = () => {
-  const { coords, zoom } = React.useContext(VolcanoContext)
+  const { volcano, coords, zoom, volcanoes, favVolcanos, setFavVolcanos, volcanoPics } = React.useContext(VolcanoContext)
   const mapRef = useRef();
 
+  function GetIcon() {
+    return L.icon({
+      iconUrl: require("./Static/icons8-volcano-48.png"),
+      iconSize: 30
+    })
+  }
+
   useEffect(() => {
-    const map = mapRef
-    const { current } = map
+    const { current } = mapRef
     setTimeout(() => {
       current.flyTo(coords, zoom, {
         duration: 5
@@ -65,72 +72,8 @@ const LeafLet = () => {
               attribution="Tiles &copy; Esri &mdash; Source: Esri, DeLorme, NAVTEQ, USGS, Intermap, iPC, NRCAN, Esri Japan, METI, Esri China (Hong Kong), Esri (Thailand), TomTom, 2012"
               url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}"
             />
-          </BaseLayer>
-
-<<<<<<< HEAD
+          </BaseLayer>          
           <OptionalLayers />
-=======
-          <LayersControl.Overlay checked name="Volcanoes">
-            <LayerGroup>
-              {volcanoes.map((volcano, index) => {
-                return (
-                  <Marker icon={GetIcon()}
-                    position={[
-                      volcano.geometry[0].coordinates[1],
-                      volcano.geometry[0].coordinates[0],
-                    ]}
-                  >
-                    <Popup>
-                      <span id='favStar'>
-                        <span id='pTitle'>{volcano.title} </span>
-                        {favVolcanos.filter((favVolcano) => favVolcano.id == volcano.id).length == 0 ? <span style={{ 'cursor': "pointer" }} onClick={() => setFavVolcanos([...favVolcanos, volcano])}>⭐</span>
-                          : ''}
-                      </span>
-                      <div>
-                        Coordinates: {volcano.geometry[0].coordinates[1]},{" "}
-                        {volcano.geometry[0].coordinates[0]} <br />
-                      </div>
-                      <a
-                        href={volcano.sources[0].url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        See More Details
-                      </a> <br />
-                      <img src={volcanoPics[volcano.title]} style={{ 'width': '200px' }} />
-                    </Popup>
-                  </Marker>
-                );
-              })}
-            </LayerGroup>
-          </LayersControl.Overlay>
-          <LayersControl.Overlay checked name="Volcano Hazard Frequency Distrobution">
-            <LayerGroup>
-              <TileLayer
-                url="https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/NDH_Volcano_Hazard_Frequency_Distribution_1979-2000/default/GoogleMapsCompatible_Level7/{z}/{y}/{x}.png"
-                attribution="&copy; NASA Blue Marble, image service by OpenGeo"
-              />
-            </LayerGroup>
-          </LayersControl.Overlay>
-          <LayersControl.Overlay checked name="Proportional_Economic_Loss_Risk_Deciles">
-            <LayerGroup>
-              <TileLayer
-                url="https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/NDH_Volcano_Proportional_Economic_Loss_Risk_Deciles_2000/default/GoogleMapsCompatible_Level7/{z}/{y}/{x}.png"
-                attribution="&copy; NASA Blue Marble, image service by OpenGeo"
-              />
-            </LayerGroup>
-          </LayersControl.Overlay>
-          <LayersControl.Overlay checked name="Mortality_Risks_Distribution">
-            <LayerGroup>
-              <TileLayer
-                url="https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/NDH_Volcano_Mortality_Risks_Distribution_2000/default/GoogleMapsCompatible_Level7/{z}/{y}/{x}.png"
-                attribution="&copy; NASA Blue Marble, image service by OpenGeo"
-              />
-            </LayerGroup>
-          </LayersControl.Overlay>
-
->>>>>>> 9ef6e697 (ahh)
-
           <FeatureGroup>
             <EditControl
               position='topleft'
@@ -150,4 +93,3 @@ const LeafLet = () => {
 };
 
 export default LeafLet
-
