@@ -23,7 +23,6 @@ const LeafLet = () => {
       })
     }, 1000)
 
-
   }, [coords])
 
   const { BaseLayer } = LayersControl;
