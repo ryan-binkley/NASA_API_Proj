@@ -20,8 +20,10 @@ function GetIcon() {
 
 function OptionalLayers() {
 
+    const {volcanoes, setVolcanoes} = React.useContext(VolcanoContext)
     const { volcanoPics } = React.useContext(VolcanoImgages);
-    const { favVolcanos, setFavVolcanos, volcanoes } = React.useContext(VolcanoContext);
+    const { favVolcanos, setFavVolcanos } = React.useContext(VolcanoContext);
+    const { coords, zoom } = React.useContext(VolcanoContext)
 
     return (
         <>
