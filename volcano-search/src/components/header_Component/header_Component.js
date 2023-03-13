@@ -2,12 +2,11 @@ import './headerComponent.css';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { VolcanoContext } from '../../App.js';
-import { VolcanoImgages } from '../../App.js';
 import SearchBar from '../searchBar';
 
 function HeaderComponent() {
 
-    const {favVolcanos } = React.useContext(VolcanoContext);
+    const {favVolcanos, searchShow } = React.useContext(VolcanoContext);
     const navigate = useNavigate();
 
     return (
@@ -28,7 +27,7 @@ function HeaderComponent() {
                 </div>
                 <h2 id='title'>Fantastic Volcanoes and Where to Find Them</h2>
                 <div id='search'>
-                    <SearchBar />
+                    {searchShow ? <SearchBar /> : ''}
                 </div>
             </div>
         </>

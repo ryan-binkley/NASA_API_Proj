@@ -1,20 +1,28 @@
 import './aboutPageComponent.css';
+import React from 'react';
+import { VolcanoContext } from '../../App.js';
 
 function AboutPageComponent() {
+
+    const { setSearchShow } = React.useContext(VolcanoContext);
+    setSearchShow(false);
 
     let devs = ['Peter Alkumeidy', 'Ryan Binkley', 'Tyler Hancock', 'Isaac Pringle', 'Brandon Roques'];
 
     return (
         <>
+        <div id='content'>
             <div id='wrapperAbout'>
-                <h3 style={{ "font-size": 30 }} id='title'>About Us</h3>
+                <h2 id='title'>About Us</h2>
                 <div id='devs'>
                     <strong>Meet the Devs:</strong>
                     {devs.map((dev) => <li>{dev}</li>
                     )}
                 </div>
+                <div id='filler'></div>
                 <div>Made using React & Leaflet for JavaScript</div>
                 <div>Uses the NASA EONET & GIBS APIs, OpenStreetMap API, and Google Maps API</div>
+            </div>
             </div>
         </>
     )
