@@ -37,7 +37,7 @@ const LeafLet = () => {
       <script src="http://unpkg.com/leaflet@latest/dist/leaflet.js"></script>
       <script src="js/leaflet-providers.js"></script>
 
-      <MapContainer ref={mapRef} center={[51.505, -0.09]} zoom={2.4} scrollWheelZoom={true} id='theMap' minZoom={2.4} maxZoom={15} dragging={true} boxZoom={true} maxBounds={[[-90, -180], [90, 180]]}>
+      <MapContainer ref={mapRef} center={[-20, 0]} zoom={2.4} scrollWheelZoom={true} id='theMap' minZoom={2.4} maxZoom={15} dragging={true} boxZoom={true} maxBounds={[[-90, -180], [90, 180]]}>
         <ResetViewControl
           title="Reset view"
           icon="🏠"
