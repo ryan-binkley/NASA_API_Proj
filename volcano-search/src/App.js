@@ -5,13 +5,8 @@ import React, { useState , useEffect} from 'react';
 import HeaderComponent from './components/header_Component/header_Component';
 import AboutPageComponent from './components/about_page_component/about_page_component';
 import FavoritesPageComponent from './components/favorites_page_component/favorites_page_component';
-<<<<<<< HEAD
-=======
 import "bootstrap/dist/css/bootstrap.css";
-
 import SearchBar from './components/searchBar';
-
->>>>>>> todays_work
 import DailyImage from './components/daily_volcano_image/daily_volcano_image';
 
 export const VolcanoContext = React.createContext([]);
@@ -49,7 +44,7 @@ function App() {
     "Sabancaya Volcano, Peru": "https://volcano.si.edu/gallery/photos/GVP-04768.jpg",
     "Fuego Volcano, Guatemala": "https://volcano.si.edu/gallery/photos/GVP-03903.jpg"
   }
-  
+
   const [volcanoes, setVolcanoes] = useState([]);
   useEffect(() => {
     fetch("https://eonet.gsfc.nasa.gov/api/v3/categories/volcanoes")

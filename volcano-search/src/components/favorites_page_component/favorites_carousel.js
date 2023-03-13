@@ -1,6 +1,7 @@
 import React, { useState, useContext, Component } from 'react';
 import ReactDOM from 'react-dom';
 import Carousel from 'react-bootstrap/Carousel';
+import './favorites_carousel.css'
 import { VolcanoContext } from '../../App.js';
 import { VolcanoImgages } from '../../App.js'; 
 
@@ -13,8 +14,8 @@ const UncontrolledExample = () =>  {
     
 
   return (
-
-    <Carousel interval={1500}>
+<div id='carousel' className='carousel'>
+    <Carousel interval={1500} fade={true}>
       {favVolcanos.map((volcano) => {
         return (
             <Carousel.Item>
@@ -27,6 +28,7 @@ const UncontrolledExample = () =>  {
       })}
       
     </Carousel>
+    </div>
 
   );
 }
