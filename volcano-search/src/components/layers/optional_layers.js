@@ -59,7 +59,7 @@ function OptionalLayers() {
                     })}
                 </LayerGroup>
             </LayersControl.Overlay>
-            <LayersControl.Overlay name="Volcano Hazard Frequency Distrobution">
+            <LayersControl.Overlay name="Volcano Hazard Frequency Distribution">
                 <LayerGroup>
                     <TileLayer
                         url="https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/NDH_Volcano_Hazard_Frequency_Distribution_1979-2000/default/GoogleMapsCompatible_Level7/{z}/{y}/{x}.png"
