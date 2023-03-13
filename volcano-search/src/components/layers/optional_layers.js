@@ -59,7 +59,7 @@ function OptionalLayers() {
                     })}
                 </LayerGroup>
             </LayersControl.Overlay>
-            <LayersControl.Overlay checked name="Volcano Hazard Frequency Distrobution">
+            <LayersControl.Overlay name="Volcano Hazard Frequency Distrobution">
                 <LayerGroup>
                     <TileLayer
                         url="https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/NDH_Volcano_Hazard_Frequency_Distribution_1979-2000/default/GoogleMapsCompatible_Level7/{z}/{y}/{x}.png"
@@ -78,7 +78,7 @@ function OptionalLayers() {
                         opacity={.6} />
                 </LayerGroup>
             </LayersControl.Overlay>
-            <LayersControl.Overlay checked name="Proportional Economic Loss Risk Deciles">
+            <LayersControl.Overlay name="Proportional Economic Loss Risk Deciles">
                 <LayerGroup>
                     <TileLayer
                         url="https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/NDH_Volcano_Proportional_Economic_Loss_Risk_Deciles_2000/default/GoogleMapsCompatible_Level7/{z}/{y}/{x}.png"
@@ -99,7 +99,7 @@ function OptionalLayers() {
                         opacity={.6} />
                 </LayerGroup>
             </LayersControl.Overlay>
-            <LayersControl.Overlay checked name="Mortality Risks Distribution">
+            <LayersControl.Overlay name="Mortality Risks Distribution">
                 <LayerGroup>
                     <TileLayer
                         url="https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/NDH_Volcano_Mortality_Risks_Distribution_2000/default/GoogleMapsCompatible_Level7/{z}/{y}/{x}.png"
@@ -116,7 +116,7 @@ function OptionalLayers() {
                         opacity={.6} />
                 </LayerGroup>
             </LayersControl.Overlay>
-            <LayersControl.Overlay checked name="Population Density">
+            <LayersControl.Overlay name="Population Density">
                 <LayerGroup>
                     <TileLayer
                         url="https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/GPW_Population_Density_2020/default/GoogleMapsCompatible_Level7/{z}/{y}/{x}.png"
