@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react"
+import React from "react"
 import { VolcanoContext } from '../../App.js';
 
 const volcanoImage = [
@@ -107,7 +107,7 @@ function DailyImage() {
             <div>
                 <img src={Object.values(volcanoImage[today_pic])} alt="this volcano" />
                 <div>
-                    <a target="_blank" href={volcanoes[today_pic].sources[0].url}>
+                    <a target="_blank" rel="noreferrer" href={volcanoes[today_pic].sources[0].url}>
                         <p>
                             {Object.keys(volcanoImage[today_pic])}
                         </p>

@@ -1,7 +1,5 @@
-import React, { useState, useContext } from 'react'
-import { useMap } from 'react-leaflet';
+import React, { useState } from 'react'
 import { VolcanoContext } from '../App';
-import LeafLet from './leafLet_page';
 import './searchBar.css';
 
 const SearchBar = () => {
