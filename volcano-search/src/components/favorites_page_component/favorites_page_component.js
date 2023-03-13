@@ -30,7 +30,7 @@ function FavoritesPageComponent() {
                         : defaultText}
                 </div>
             </div>
-                <UncontrolledExample />
+               <div id='spin'> <UncontrolledExample /></div>
         </>
     )
 };

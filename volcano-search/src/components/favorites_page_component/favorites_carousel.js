@@ -1,5 +1,4 @@
-import React, { useState, useContext, Component } from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 import './favorites_carousel.css'
 import { VolcanoContext } from '../../App.js';
@@ -10,9 +9,7 @@ import { VolcanoImgages } from '../../App.js';
 const UncontrolledExample = () =>  {
     const { favVolcanos } = React.useContext(VolcanoContext);
     const { volcanoPics } = React.useContext(VolcanoImgages);
-    console.log('favs', favVolcanos)
     
-
   return (
 <div id='carousel' className='carousel'>
   
