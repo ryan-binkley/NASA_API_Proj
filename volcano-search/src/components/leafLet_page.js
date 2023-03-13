@@ -48,7 +48,7 @@ const LeafLet = () => {
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
           </BaseLayer>
-          <BaseLayer checked name="Google Satellite">
+          <BaseLayer name="Google Satellite">
             <TileLayer
               attribution='&copy; <a href="https://www.google.com">Google</a> contributors'
               url="//mt.google.com/vt/lyrs=y&x={x}&y={y}&z={z}"
