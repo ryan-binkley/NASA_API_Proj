@@ -37,7 +37,7 @@ const LeafLet = () => {
       <script src="http://unpkg.com/leaflet@latest/dist/leaflet.js"></script>
       <script src="js/leaflet-providers.js"></script>
 
-      <MapContainer ref={mapRef} center={[51.505, -0.09]} zoom={2.4} scrollWheelZoom={true} id='theMap' minZoom={2.4} maxZoom={15} dragging={true} boxZoom={true} maxBounds={[[-90, -180], [90, 180]]}>
+      <MapContainer ref={mapRef} center={[-20, 0]} zoom={2.4} scrollWheelZoom={true} id='theMap' minZoom={2.4} maxZoom={15} dragging={true} boxZoom={true} maxBounds={[[-90, -180], [90, 180]]}>
         <ResetViewControl
           title="Reset view"
           icon="🏠"
@@ -49,7 +49,7 @@ const LeafLet = () => {
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
           </BaseLayer>
-          <BaseLayer checked name="Google Satellite">
+          <BaseLayer name="Google Satellite">
             <TileLayer
               attribution='&copy; <a href="https://www.google.com">Google</a> contributors'
               url="//mt.google.com/vt/lyrs=y&x={x}&y={y}&z={z}"

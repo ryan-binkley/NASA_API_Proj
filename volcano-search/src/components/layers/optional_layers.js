@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useContext } from "react";
+import React from "react";
 import { VolcanoImgages } from "../../App";
 import { VolcanoContext } from "../../App";
 import L from 'leaflet'
@@ -38,7 +38,7 @@ function OptionalLayers() {
                                 <Popup>
                                     <span id='favStar'>
                                         <span id='pTitle'>{volcano.title} </span>
-                                        {favVolcanos.filter((favVolcano) => favVolcano.id == volcano.id).length == 0 ? <span style={{ 'cursor': "pointer" }} onClick={() => setFavVolcanos([...favVolcanos, volcano])}>⭐</span>
+                                        {favVolcanos.filter((favVolcano) => favVolcano.id === volcano.id).length === 0 ? <span style={{ 'cursor': "pointer" }} onClick={() => setFavVolcanos([...favVolcanos, volcano])}>⭐</span>
                                             : ''}
                                     </span>
                                     <div>
@@ -52,14 +52,14 @@ function OptionalLayers() {
                                     >
                                         See More Details
                                     </a> <br />
-                                    <img src={volcanoPics[volcano.title]} style={{ 'width': '200px' }} />
+                                    <img src={volcanoPics[volcano.title]} alt='' style={{ 'width': '200px' }} />
                                 </Popup>
                             </Marker>
                         );
                     })}
                 </LayerGroup>
             </LayersControl.Overlay>
-            <LayersControl.Overlay checked name="Volcano Hazard Frequency Distrobution">
+            <LayersControl.Overlay name="Volcano Hazard Frequency Distribution">
                 <LayerGroup>
                     <TileLayer
                         url="https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/NDH_Volcano_Hazard_Frequency_Distribution_1979-2000/default/GoogleMapsCompatible_Level7/{z}/{y}/{x}.png"
@@ -78,7 +78,7 @@ function OptionalLayers() {
                         opacity={.6} />
                 </LayerGroup>
             </LayersControl.Overlay>
-            <LayersControl.Overlay checked name="Proportional_Economic_Loss_Risk_Deciles">
+            <LayersControl.Overlay name="Proportional Economic Loss Risk Deciles">
                 <LayerGroup>
                     <TileLayer
                         url="https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/NDH_Volcano_Proportional_Economic_Loss_Risk_Deciles_2000/default/GoogleMapsCompatible_Level7/{z}/{y}/{x}.png"
@@ -99,7 +99,7 @@ function OptionalLayers() {
                         opacity={.6} />
                 </LayerGroup>
             </LayersControl.Overlay>
-            <LayersControl.Overlay checked name="Mortality_Risks_Distribution">
+            <LayersControl.Overlay name="Mortality Risks Distribution">
                 <LayerGroup>
                     <TileLayer
                         url="https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/NDH_Volcano_Mortality_Risks_Distribution_2000/default/GoogleMapsCompatible_Level7/{z}/{y}/{x}.png"
@@ -116,7 +116,7 @@ function OptionalLayers() {
                         opacity={.6} />
                 </LayerGroup>
             </LayersControl.Overlay>
-            <LayersControl.Overlay checked name="Population Density">
+            <LayersControl.Overlay name="Population Density">
                 <LayerGroup>
                     <TileLayer
                         url="https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/GPW_Population_Density_2020/default/GoogleMapsCompatible_Level7/{z}/{y}/{x}.png"

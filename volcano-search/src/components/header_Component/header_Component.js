@@ -1,5 +1,5 @@
 import './headerComponent.css';
-import React, { useState } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { VolcanoContext } from '../../App.js';
 import SearchBar from '../searchBar';

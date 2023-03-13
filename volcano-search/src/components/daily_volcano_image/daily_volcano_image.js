@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react"
+import React from "react"
 import { VolcanoContext } from '../../App.js';
 import './daily_volcano_image.css'
 
@@ -108,7 +108,7 @@ function DailyImage() {
             <body>
                 <div className="dailyBackground">
                     <div>
-                    <img className='dailyImageProp' src={Object.values(volcanoImage[today_pic])} alt="this volcano" />
+                        <img className='dailyImageProp' src={Object.values(volcanoImage[today_pic])} alt="this volcano" />
                     </div>
                     <div>
                         <a target="_blank" href={volcanoes[today_pic].sources[0].url}>
@@ -119,7 +119,6 @@ function DailyImage() {
                     </div>
                 </div>
             </body>
-
         </>
     )
 };
