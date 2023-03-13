@@ -8,9 +8,9 @@ function AboutPageComponent() {
     return (
         <>
             <div id='wrapperAbout'>
-                <h3 id='title'>About Us</h3>
+                <h3 style={{"font-size": 30}}id='title'>About Us</h3>
                 <div id='devs'>
-                    Meet the Devs:
+                    <strong>Meet the Devs:</strong>
                     {devs.map((dev) => <li>{dev}</li>
                     )}
                 </div>

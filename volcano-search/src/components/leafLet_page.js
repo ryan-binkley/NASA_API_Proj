@@ -2,7 +2,8 @@ import React, { useEffect, useRef } from "react";
 import ResetViewControl from '@20tab/react-leaflet-resetview';
 import { EditControl } from "react-leaflet-draw"
 import MapPrint from "./MapPrint/MapPrint";
-import {MapContainer, TileLayer, LayersControl, FeatureGroup,} from "react-leaflet";
+import {MapContainer, TileLayer, LayersControl, FeatureGroup, LayerGroup, Marker, Popup} from "react-leaflet";
+import L from 'leaflet'
 import "./app.css";
 import 'leaflet-easyprint'
 import { VolcanoContext } from "../App";
@@ -10,12 +11,18 @@ import OptionalLayers from "./layers/optional_layers";
 
 
 const LeafLet = () => {
-  const { coords, zoom } = React.useContext(VolcanoContext)
+  const { volcano, coords, zoom, volcanoes, favVolcanos, setFavVolcanos, volcanoPics } = React.useContext(VolcanoContext)
   const mapRef = useRef();
 
+  function GetIcon() {
+    return L.icon({
+      iconUrl: require("./Static/icons8-volcano-48.png"),
+      iconSize: 30
+    })
+  }
+
   useEffect(() => {
-    const map = mapRef
-    const { current } = map
+    const { current } = mapRef
     setTimeout(() => {
       current.flyTo(coords, zoom, {
         duration: 5
@@ -65,10 +72,8 @@ const LeafLet = () => {
               attribution="Tiles &copy; Esri &mdash; Source: Esri, DeLorme, NAVTEQ, USGS, Intermap, iPC, NRCAN, Esri Japan, METI, Esri China (Hong Kong), Esri (Thailand), TomTom, 2012"
               url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}"
             />
-          </BaseLayer>
-
+          </BaseLayer>          
           <OptionalLayers />
-
           <FeatureGroup>
             <EditControl
               position='topleft'
@@ -88,4 +93,3 @@ const LeafLet = () => {
 };
 
 export default LeafLet
-

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useContext } from "react";
 import { VolcanoImgages } from "../../App";
 import { VolcanoContext } from "../../App";
 import L from 'leaflet'
@@ -14,21 +14,21 @@ import 'leaflet-easyprint'
 function GetIcon() {
     return L.icon({
         iconUrl: require("../Static/icons8-volcano-48.png"),
-        iconSize: 300
+        iconSize: 25
     })
 }
 
 function OptionalLayers() {
 
-    const [volcanoes, setVolcanoes] = useState([]);
     const { volcanoPics } = React.useContext(VolcanoImgages);
-    const { favVolcanos, setFavVolcanos } = React.useContext(VolcanoContext);
+    const { favVolcanos, setFavVolcanos, volcanoes } = React.useContext(VolcanoContext);
     const { coords, zoom } = React.useContext(VolcanoContext)
 
     return (
         <>
             <LayersControl.Overlay checked name="Volcanoes">
                 <LayerGroup>
+                    {console.log('test', volcanoes)}
                     {volcanoes.map((volcano, index) => {
                         return (
                             <Marker icon={GetIcon()}
