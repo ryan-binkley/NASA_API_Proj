@@ -1,6 +1,8 @@
 import './favorites_page_component.css';
-import React from 'react';
+import React, { useEffect }from 'react';
+import UncontrolledExample from './favorites_carousel.js'
 import { VolcanoContext } from '../../App.js';
+import { VolcanoImgages } from '../../App.js'; 
 
 function FavoritesPageComponent() {
     const { favVolcanos, setFavVolcanos, setSearchShow } = React.useContext(VolcanoContext);
@@ -12,6 +14,7 @@ function FavoritesPageComponent() {
     let simpDate = `${year}/${month}/${day}`;
     let defaultText = "You don't have any favorites yet! Head back to the Home page and click the star icon in a volcano popup to get started!"
     setSearchShow(false);
+
 
     return (
         <>
@@ -27,6 +30,7 @@ function FavoritesPageComponent() {
                         : defaultText}
                 </div>
             </div>
+                <UncontrolledExample />
         </>
     )
 };
