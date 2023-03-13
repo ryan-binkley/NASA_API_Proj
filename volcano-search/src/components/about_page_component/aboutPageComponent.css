@@ -11,3 +11,15 @@
     justify-content: center;
     ;
 }
+
+html {
+    background-color: darkslategrey;
+}
+
+#content {
+    background-color: darkslategrey;
+}
+
+#filler {
+    height: 50px;
+}

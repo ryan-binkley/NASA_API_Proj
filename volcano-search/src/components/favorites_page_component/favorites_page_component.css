@@ -10,3 +10,11 @@
     flex-direction: column;
     justify-content: center;
 }
+
+html {
+    background-color: darkslategrey;
+}
+
+#wrapperFavs {
+    background-color: darkslategrey;
+}
