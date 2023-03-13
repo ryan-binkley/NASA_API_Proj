@@ -1,10 +1,13 @@
 import './favorites_page_component.css';
 import React from 'react';
+import UncontrolledExample from './favorites_carousel.js'
 import { VolcanoContext } from '../../App.js';
+import { VolcanoImgages } from '../../App.js'; 
 
 
 function FavoritesPageComponent() {
     const { favVolcanos, setFavVolcanos } = React.useContext(VolcanoContext);
+    const { volcanoPics } = React.useContext(VolcanoImgages);
 
     let dateObj = new Date();
     let month = dateObj.getUTCMonth() + 1;
@@ -28,6 +31,7 @@ function FavoritesPageComponent() {
                         : defaultText}
                 </div>
             </div>
+                <UncontrolledExample />
         </>
     )
 };

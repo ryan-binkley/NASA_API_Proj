@@ -40,7 +40,7 @@ const SearchBar = () => {
         { name: "Reventador Volcano", coords: [-0.07, -77.65], zoom: 9 },
         { name: "Sangay Volcano", coords: [-2.005, -78.341], zoom: 9 },
         { name: "Sabancaya Volcano", coords: [-15.78, -71.85], zoom: 9 },
-        { name: "Fuego Volcano", coords: [14.473, -90.88], zoom: 14 }
+        { name: "Fuego Volcano", coords: [14.473, -90.88], zoom: 9 }
     ]
     const countries = [
         { country: "Vanuatu", coords: [-16.6611, 168.2148], zoom: 7 },
@@ -90,6 +90,7 @@ const SearchBar = () => {
                             <button onClick={() => {
                                 setCoords(volcano.coords)
                                 setZoom(volcano.zoom)
+                                setSearchInput("")
                             }}>{volcano.name}</button>
                         </div>
                     )
@@ -105,6 +106,7 @@ const SearchBar = () => {
                             <button onClick={() => {
                                 setCoords(country.coords)
                                 setZoom(country.zoom)
+                                setSearchInput("")
                             }}>{country.country}</button>
                         </div>
                     )
