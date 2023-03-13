@@ -1,5 +1,6 @@
 
 .dailyBackground {
+    margin-top: 70px;
     filter: brightness(120%);
     background-image: url("Pyroclastic_Flow.png");
     background-repeat: round;
@@ -7,6 +8,7 @@
 }
 
 .linkButton {
+    margin-top: 70px;
     border-radius: 15px;
     background-color:rgb(54, 29, 12);
     color: rgb(250, 175, 36);
@@ -18,11 +20,11 @@
 .linkButton:hover {
     background-color: rgb(158, 74, 18);
     color:rgb(250, 246, 45)
-    
+
 }
 
 .dailyImageProp {
-    padding-top: 106px;
+    margin-top: 70px;
     border-radius: 100px;
     border: 3px solid rgb(156, 156, 9);
     height: 720px;
