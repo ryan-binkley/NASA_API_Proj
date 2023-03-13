@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from "react"
 import { VolcanoContext } from '../../App.js';
+import './daily_volcano_image.css'
 
 const volcanoImage = [
     {
@@ -104,16 +105,21 @@ function DailyImage() {
 
     return (
         <>
-            <div>
-                <img src={Object.values(volcanoImage[today_pic])} alt="this volcano" />
-                <div>
-                    <a target="_blank" href={volcanoes[today_pic].sources[0].url}>
-                        <p>
-                            {Object.keys(volcanoImage[today_pic])}
-                        </p>
-                    </a>
+            <body>
+                <div className="dailyBackground">
+                    <div>
+                    <img className='dailyImageProp' src={Object.values(volcanoImage[today_pic])} alt="this volcano" />
+                    </div>
+                    <div>
+                        <a target="_blank" href={volcanoes[today_pic].sources[0].url}>
+                            <button className="linkButton">
+                                {Object.keys(volcanoImage[today_pic])}
+                            </button>
+                        </a>
+                    </div>
                 </div>
-            </div>
+            </body>
+
         </>
     )
 };
