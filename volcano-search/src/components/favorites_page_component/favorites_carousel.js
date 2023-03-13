@@ -16,7 +16,7 @@ const UncontrolledExample = () =>  {
   return (
 <div id='carousel' className='carousel'>
   
-    <Carousel interval={1200} fade={true} controls={false}>
+    <Carousel interval={1000} fade={true} controls={false}>
       {favVolcanos.map((volcano) => {
         return (
             <Carousel.Item>
