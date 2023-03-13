@@ -22,7 +22,6 @@ function OptionalLayers() {
 
     const { volcanoPics } = React.useContext(VolcanoImgages);
     const { favVolcanos, setFavVolcanos, volcanoes } = React.useContext(VolcanoContext);
-    const { coords, zoom } = React.useContext(VolcanoContext)
 
     return (
         <>

@@ -7,28 +7,22 @@ import SearchBar from '../searchBar';
 
 function HeaderComponent() {
 
-    const { volcano, setVolcano, favVolcanos } = React.useContext(VolcanoContext);
-    const {volcanoPics} = React.useContext(VolcanoImgages);
-    const [userInput, setUserInput] = useState('');
+    const {favVolcanos } = React.useContext(VolcanoContext);
     const navigate = useNavigate();
-    const handleChange = (event) => {
-        setUserInput(event.target.value);
-    };
 
     return (
         <>
             <div id='wrapper'>
-                
                 <div id='navPages'>
                     <div>
-                    <img id='logo' style={{'cursor': "pointer"}}onClick={() => navigate('/')} src='./Volcano_Logo.png' alt='Volcano Logo'></img>
+                        <img id='logo' style={{ 'cursor': "pointer" }} onClick={() => navigate('/')} src='./Volcano_Logo.png' alt='Volcano Logo'></img>
                     </div>
                     <div id='navButtons'>
                         <button onClick={() => navigate('/')} className='buttons'>Home</button>
                         <button onClick={() => navigate("/about")} className='buttons'>About</button>
                         <button onClick={() => navigate("/favorites")} className='buttons'>Favorites ({favVolcanos.length})</button>
                         <div>
-                          <button onClick={() => navigate("/daily")} className="buttons">Volcano of the Day</button>
+                            <button onClick={() => navigate("/daily")} className="buttons">Volcano of the Day</button>
                         </div>
                     </div>
                 </div>

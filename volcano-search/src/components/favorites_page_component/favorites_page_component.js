@@ -2,7 +2,6 @@ import './favorites_page_component.css';
 import React from 'react';
 import { VolcanoContext } from '../../App.js';
 
-
 function FavoritesPageComponent() {
     const { favVolcanos, setFavVolcanos } = React.useContext(VolcanoContext);
 
@@ -11,7 +10,6 @@ function FavoritesPageComponent() {
     let day = dateObj.getUTCDate();
     let year = dateObj.getUTCFullYear();
     let simpDate = `${year}/${month}/${day}`;
-
     let defaultText = "You don't have any favorites yet! Head back to the Home page and click the star icon in a volcano popup to get started!"
 
     return (

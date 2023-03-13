@@ -89,7 +89,6 @@ const volcanoImage = [
     },]
 
 
-
 function DailyImage() {
 
     const { volcanoes } = React.useContext(VolcanoContext);
@@ -116,10 +115,8 @@ function DailyImage() {
                 </div>
             </div>
         </>
-
     )
 };
-
 
 export default DailyImage
 
