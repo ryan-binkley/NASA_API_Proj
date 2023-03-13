@@ -3,7 +3,6 @@ import ResetViewControl from '@20tab/react-leaflet-resetview';
 import { EditControl } from "react-leaflet-draw"
 import MapPrint from "./MapPrint/MapPrint";
 import { MapContainer, TileLayer, LayersControl, FeatureGroup } from "react-leaflet";
-import L from 'leaflet'
 import "./app.css";
 import 'leaflet-easyprint'
 import { VolcanoContext } from "../App";
@@ -11,8 +10,10 @@ import OptionalLayers from "./layers/optional_layers";
 
 
 const LeafLet = () => {
-  const { coords, zoom } = React.useContext(VolcanoContext)
+  const { coords, zoom, setSearchShow } = React.useContext(VolcanoContext)
   const mapRef = useRef();
+
+  setSearchShow(true);
 
   useEffect(() => {
     const { current } = mapRef

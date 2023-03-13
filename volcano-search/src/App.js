@@ -55,11 +55,12 @@ function App() {
   const [favVolcanos, setFavVolcanos] = useState([]);
   const [coords, setCoords] = useState([])
   const [zoom, setZoom] = useState()
+  const [searchShow, setSearchShow] = useState(true);
 
 
   return (
     <div className="App">
-      <VolcanoContext.Provider value={{ volcanoes, volcano, setVolcano, favVolcanos, setFavVolcanos, coords, setCoords, zoom, setZoom }}>
+      <VolcanoContext.Provider value={{ volcanoes, volcano, setVolcano, favVolcanos, setFavVolcanos, coords, setCoords, zoom, setZoom, searchShow, setSearchShow }}>
         <VolcanoImgages.Provider value={{ volcanoPics }}>
           <HeaderComponent />
           <Routes>

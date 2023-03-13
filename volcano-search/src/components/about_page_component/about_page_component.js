@@ -1,6 +1,11 @@
 import './aboutPageComponent.css';
+import React from 'react';
+import { VolcanoContext } from '../../App.js';
 
 function AboutPageComponent() {
+
+    const { setSearchShow } = React.useContext(VolcanoContext);
+    setSearchShow(false);
 
     let devs = ['Peter Alkumeidy', 'Ryan Binkley', 'Tyler Hancock', 'Isaac Pringle', 'Brandon Roques'];
 

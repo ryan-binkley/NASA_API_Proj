@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useContext } from "react"
 import { VolcanoContext } from '../../App.js';
 
-
 const volcanoImage = [
     {
         "Ambae Volcano, Vanuatu": "https://volcano.si.edu/gallery/photos/GVP-11911.jpg"
@@ -91,7 +90,8 @@ const volcanoImage = [
 
 function DailyImage() {
 
-    const { volcanoes } = React.useContext(VolcanoContext);
+    const { volcanoes, setSearchShow } = React.useContext(VolcanoContext);
+    setSearchShow(false);
 
     var today_date = new Date()
     var today_pic = today_date.getDate()

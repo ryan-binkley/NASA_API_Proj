@@ -27,7 +27,6 @@ function OptionalLayers() {
         <>
             <LayersControl.Overlay checked name="Volcanoes">
                 <LayerGroup>
-                    {console.log('test', volcanoes)}
                     {volcanoes.map((volcano, index) => {
                         return (
                             <Marker icon={GetIcon()}
